@@ -8,11 +8,11 @@ VALUES ('Cables');
 INSERT INTO status(Name)
 VALUES ('Usado');
 
-INSERT INTO Object(Name, Price, Category)
-VALUES ('Extension Patito', 2300, 4);
+INSERT INTO Object(Name, Price, idCategory)
+VALUES ('Extension Patito', 2300, 1);
 
-INSERT INTO Stock(Barcode,Comments, Object, Status)
-VALUES (4,'Perfecto',6,4);
+INSERT INTO Stock(Barcode,Comments, idObject, idStatus)
+VALUES (1234,'Perfecto',1,1);
 
-INSERT INTO History(WWID_Approver, Start_Date, Return_Date, End_Date, Barcode_Stock, Client)
-VALUES(15151515, '9/9/9', '11/11/11', '10/10/10', 4, 12121212)
+INSERT INTO History(WWID_Approver, Start_Date, Return_Date, End_Date, Barcode_Stock, idClient)
+VALUES(15151515, '9/9/9', '11/11/11', '10/10/10', 1234, 12121212);
