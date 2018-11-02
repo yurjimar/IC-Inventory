@@ -22,6 +22,7 @@ DROP TABLE IF EXISTS `Inventory`.`Category` ;
 CREATE TABLE IF NOT EXISTS `Inventory`.`Category` (
   `idCategory` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NOT NULL,
+  `Deleted_Date` DATETIME NULL,
   PRIMARY KEY (`idCategory`))
 ENGINE = InnoDB;
 
@@ -36,6 +37,7 @@ CREATE TABLE IF NOT EXISTS `Inventory`.`Object` (
   `Name` VARCHAR(255) NOT NULL,
   `Price` DOUBLE NULL,
   `idCategory` INT NOT NULL,
+  `Deleted_Date` DATETIME NULL,
   PRIMARY KEY (`idObject`),
   INDEX `fk_Object_Category_idx` (`idCategory` ASC) VISIBLE,
   CONSTRAINT `fk_Object_Category`
@@ -54,6 +56,7 @@ DROP TABLE IF EXISTS `Inventory`.`Status` ;
 CREATE TABLE IF NOT EXISTS `Inventory`.`Status` (
   `idStatus` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NOT NULL,
+  `Deleted_Date` DATETIME NULL,
   PRIMARY KEY (`idStatus`))
 ENGINE = InnoDB;
 
@@ -68,6 +71,7 @@ CREATE TABLE IF NOT EXISTS `Inventory`.`Stock` (
   `Comments` VARCHAR(255) NULL,
   `idObject` INT NOT NULL,
   `idStatus` INT NOT NULL,
+  `Deleted_Date` DATETIME NULL,
   PRIMARY KEY (`Barcode`),
   INDEX `fk_Stock_Object1_idx` (`idObject` ASC) VISIBLE,
   INDEX `fk_Stock_Status1_idx` (`idStatus` ASC) VISIBLE,
@@ -98,6 +102,7 @@ CREATE TABLE IF NOT EXISTS `Inventory`.`Client` (
   `Phone` VARCHAR(9) NOT NULL,
   `Email` VARCHAR(100) NOT NULL,
   `Province` VARCHAR(11) NULL,
+  `Deleted_Date` DATETIME NULL,
   PRIMARY KEY (`idClient`))
 ENGINE = InnoDB;
 
@@ -115,6 +120,7 @@ CREATE TABLE IF NOT EXISTS `Inventory`.`History` (
   `End_Date` DATETIME NULL,
   `Barcode_Stock` VARCHAR(50) NOT NULL,
   `idClient` VARCHAR(15) NOT NULL,
+  `Deleted_Date` DATETIME NULL,
   PRIMARY KEY (`idHistory`),
   INDEX `fk_History_Stock1_idx` (`Barcode_Stock` ASC) VISIBLE,
   INDEX `fk_History_Client1_idx` (`idClient` ASC) VISIBLE,
